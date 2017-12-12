@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/teamsafemove/safe-move-app#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
-    "sequelize": "^4.28.0"
+    "mysql2": "^1.5.1",
+    "sequelize": "^4.28.0",
+    "twilio": "^3.10.1"
   }
 }
