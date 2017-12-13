@@ -2,6 +2,9 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var client = require("twilio")('AC63dd4f83c2c7e4c0fe510ed82af11156', 'c95b870b1b775b2f7f751f5a05cbd0ec');
 var MessagingResponse = require('twilio').twiml.MessagingResponse;
+var db = require("./app/models");
+var iCSV = require('./import-csv.js');
+
 
 
 var app = express();
@@ -41,6 +44,9 @@ app.post('/sms', (req, res) => {
     res.end(twiml.toString());
 });
 
-app.listen(PORT, function () {
-    console.log("App listening on PORT " + PORT);
+db.sequelize.sync().then(function () {
+    app.listen(PORT, function () {
+        console.log("App listening on PORT " + PORT);
+        iCSV();
+    });
 });
