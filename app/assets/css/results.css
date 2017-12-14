@@ -1,12 +1,14 @@
 @import url(//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css);
-
+.user-comments{
+    background-color: rgb(196, 196, 196);
+}
 .detailBox {
     width:320px;
     border:1px solid #bbb;
     margin:50px;
 }
 .titleBox {
-    background-color:#fdfdfd;
+    background-color:#dc7b26;
     padding:10px;
 }
 .titleBox label{
@@ -36,6 +38,7 @@
     list-style:none;
     max-height:400px;
     overflow:auto;
+    background-color: blueviolet;
 }
 .commentList li {
     margin:0;
@@ -57,3 +60,26 @@
     border-top:1px dotted #bbb;
     padding:10px;
 }
+
+/* ------------------- */
+
+.left{
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    /* background-color:#3d231b; */
+    height : 700px;
+     /* background-image: url(https://cdn.homedsgn.com/wp-content/uploads/2011/05/Kerchum-Residence-01-750x559.jpg); */
+     overflow: hidden;
+}
+.right{
+    display : flex;
+    justify-content : center;
+    align-items : left;
+    background-color:white;
+    height : 700px;
+  
+}
+
+
+
