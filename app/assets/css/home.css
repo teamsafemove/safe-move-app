@@ -18,6 +18,14 @@ body{
 .intro{
     height:100%
 }
+.cta-cont{
+    background-color: rgba(23, 118, 220, 0.756);
+    height: 100px;
+
+}
+.cta-home{
+    margin: auto;
+}
 
 .left{
     display : flex;
