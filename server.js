@@ -22,7 +22,6 @@ app.use(bodyParser.json({
 app.use(express.static("./app/assets"));
 
 
-
 app.get("/api/test", function (req, res) {
     client.messages.create({
         to: '+17029856854',
@@ -43,6 +42,7 @@ app.post('/sms', (req, res) => {
     console.log(req.body.Body);
     res.end(twiml.toString());
 });
+require("./app/routes/html-routes.js")(app);
 
 db.sequelize.sync().then(function () {
     app.listen(PORT, function () {
