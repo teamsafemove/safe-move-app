@@ -13,7 +13,7 @@ var db = {};
 // } else {
 //   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 // }
-var sequelize = new Sequelize("heroku_7b72d17e59e2ac7", "bcab1c7c8a3362", "d821d4a7");
+var sequelize = new Sequelize("heroku_7b72d17e59e2ac7", "bcab1c7c8a3362", "d821d4a7", "mysql");
 
 
 fs
