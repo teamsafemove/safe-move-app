@@ -4,11 +4,14 @@ var client = require("twilio")('AC63dd4f83c2c7e4c0fe510ed82af11156', 'c95b870b1b
 var MessagingResponse = require('twilio').twiml.MessagingResponse;
 var db = require("./app/models");
 var iCSV = require('./import-csv.js');
-
+var exphbs = require("express-handlebars");
 
 
 var app = express();
 var PORT = process.env.PORT || 8080;
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
