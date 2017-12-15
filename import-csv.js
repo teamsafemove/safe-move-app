@@ -1,4 +1,3 @@
-
 module.exports = function () {
     var db = require("./app/models");
     var fs = require('fs');
@@ -11,9 +10,9 @@ module.exports = function () {
         // convert csv to Object
         $.csv.toObjects(csv, {}, function (err, data) {
             for (var i = 0, len = data.length; i < len; i++) {
-                //  suppriss error to dublicate entries
+                //  supress error to dublicate entries
                 db.crimes.create(data[i]).catch(function (error) {
-                    console.warn('Skipping record:', error.parent.sqlMessage);
+                    // console.warn('Skipping record:', error.parent.sqlMessage);
                 });
             }
         });
@@ -26,7 +25,7 @@ module.exports = function () {
             for (var i = 0, len = data.length; i < len; i++) {
                 //  suppriss error to dublicate entries
                 db.zhvis.create(data[i]).catch(function (error) {
-                    console.warn('Skipping record:', error.parent.sqlMessage);
+                    // console.warn('Skipping record:', error.parent.sqlMessage);
                 });
             }
         });
