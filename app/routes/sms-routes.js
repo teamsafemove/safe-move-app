@@ -7,20 +7,6 @@ city = '';
 cost = 0;
 //-------------------------------------------------------------------------------------------------------
 
-function searchZip(zip, caf) {
-    db.zhvis.findOne({
-        where: {
-            Zip: zip
-        }
-    }).then(result => {
-        result = result.dataValues;
-        cost = result.Zhvi;
-        //this bit of code takes a number and formats it to xxx,xxx.yy for displaying money
-        cost = cost.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-        city = result.City;
-        caf(city, cost);
-    });
-}
 
 module.exports = function (app) {
     app.post('/sms', (req, res) => {
@@ -30,21 +16,41 @@ module.exports = function (app) {
 
 
         if (userMessage.toString().length == 5 & typeof userMessage == "number") {
-            searchZip(userMessage, function (city, cost) {
-                twiml.message("Info for zipcode  " +
-                    userMessage + ".\nCity: " + city + "\nCost: " + cost);
-                console.log(city, cost);
-            });
+            searchZip(userMessage).then(function () {
+                res.writeHead(200, {
+                    'Content-Type': 'text/xml'
+                });
+                res.end(twiml.toString());
+            });;
+
         } else {
             console.log(typeof userMessage, userMessage.toString().length, userMessage);
-            twiml.message("That's not a zipcode I recognize");
+            twiml.message("That's not a zipcode I recognize").then(function () {
+                res.writeHead(200, {
+                    'Content-Type': 'text/xml'
+                });
+                res.end(twiml.toString());
+            });
         }
 
-        res.writeHead(200, {
-            'Content-Type': 'text/xml'
-        });
-        res.end(twiml.toString());
+
     });
 
 
+    function searchZip(zip) {
+        db.zhvis.findOne({
+            where: {
+                Zip: zip
+            }
+        }).then(result => {
+            result = result.dataValues;
+            cost = result.Zhvi;
+            //this bit of code takes a number and formats it to xxx,xxx.yy for displaying money
+            cost = cost.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+            city = result.City;
+        }).then(function () {
+            twiml.message("Info for zipcode  " +
+                userMessage + ".\nCity: " + city + "\nCost: " + cost);
+        });
+    }
 };
