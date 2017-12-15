@@ -37,27 +37,6 @@ app.use(express.static("./app/assets"));
 require("./app/routes/sms-routes")(app);
 //-------------------------------------------------------------------------------------------------------
 
-
-app.get("/api/test", function (req, res) {
-    client.messages.create({
-        to: '+17029856854',
-        from: '+19496122211',
-        body: 'IT FUCKING WORKS!'
-    });
-
-    res.end();
-});
-
-app.post('/sms', (req, res) => {
-    const twiml = new MessagingResponse();
-
-    twiml.message('The Robots are coming! Head for the hills!');
-    res.writeHead(200, {
-        'Content-Type': 'text/xml'
-    });
-    console.log(req.body.Body);
-    res.end(twiml.toString());
-});
 require("./app/routes/html-routes.js")(app);
 
 

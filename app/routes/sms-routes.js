@@ -17,11 +17,12 @@ module.exports = function (app) {
 
         if (userMessage.toString().length == 5 & typeof userMessage == "number") {
             searchZip(userMessage);
+            console.log(city, cost);
 
 
         } else {
             console.log(typeof userMessage, userMessage.toString().length, userMessage);
-            twiml.message("That's not a zipcode I recognize")
+            twiml.message("That's not a zipcode I recognize");
             res.writeHead(200, {
                 'Content-Type': 'text/xml'
             });
