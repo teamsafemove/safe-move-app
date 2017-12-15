@@ -13,10 +13,6 @@ var app = express();
 var PORT = process.env.PORT || 8080;
 //-------------------------------------------------------------------------------------------------------
 
-var db = require("./app/models");
-var iCSV = require('./import-csv.js');
-//-------------------------------------------------------------------------------------------------------
-
 app.engine("handlebars", exphbs({
     defaultLayout: "main"
 }));
