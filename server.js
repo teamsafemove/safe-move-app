@@ -17,7 +17,9 @@ var db = require("./app/models");
 var iCSV = require('./import-csv.js');
 //-------------------------------------------------------------------------------------------------------
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({
+    defaultLayout: "main"
+}));
 app.set("view engine", "handlebars");
 
 app.use(bodyParser.json());
