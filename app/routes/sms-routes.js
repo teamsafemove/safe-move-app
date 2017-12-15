@@ -15,7 +15,7 @@ module.exports = function (app) {
 
 
         if (userMessage.toString().length == 5 & typeof userMessage == "number") {
-            searchZip(userMessage);
+            searchZip(userMessage, res);
             console.log(city, cost);
 
 
@@ -32,7 +32,7 @@ module.exports = function (app) {
     });
 
 
-    function searchZip(zip) {
+    function searchZip(zip, res) {
         db.zhvis.findOne({
             where: {
                 Zip: zip
