@@ -43,7 +43,6 @@ module.exports = function (app) {
             //this bit of code takes a number and formats it to xxx,xxx.yy for displaying money
             cost = cost.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
             city = result.City;
-        }).then(function () {
             twiml.message("Info for zipcode  " +
                 userMessage + ".\nCity: " + city + "\nCost: " + cost);
 
