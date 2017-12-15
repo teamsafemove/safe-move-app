@@ -37,6 +37,15 @@ module.exports = function (app) {
                 Zip: zip
             }
         }).then(result => {
+            if (!result) {
+                twiml.message("Zip not found");
+
+                res.writeHead(200, {
+                    'Content-Type': 'text/xml'
+                });
+                res.end(twiml.toString());
+                return;
+            }
             result = result.dataValues;
             cost = result.Zhvi;
             //this bit of code takes a number and formats it to xxx,xxx.yy for displaying money
