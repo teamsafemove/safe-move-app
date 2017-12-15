@@ -31,7 +31,6 @@ module.exports = function (app) {
 
     });
 
-
     function searchZip(zip, res) {
         db.zhvis.findOne({
             where: {
@@ -43,13 +42,24 @@ module.exports = function (app) {
             //this bit of code takes a number and formats it to xxx,xxx.yy for displaying money
             cost = cost.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
             city = result.City;
-            twiml.message("Info for zipcode  " +
-                zip + ".\nCity: " + city + "\nCost: $" + cost);
+            db.crimes.findOne({
+                where: {
+                    City: city
+                }
+            }).then(crime => {
+                vCrimes = crime.violent_crimes;
+                pCrimes = crime.property_crimes;
+                population = crime.population;
 
-            res.writeHead(200, {
-                'Content-Type': 'text/xml'
+                twiml.message("Info for zipcode  " +
+                    zip + ".\nCity: " + city + "\nCost: $" + cost + "\nPopulation: " + population + "\nViolence index: " + vCrimes
+                );
+
+                res.writeHead(200, {
+                    'Content-Type': 'text/xml'
+                });
+                res.end(twiml.toString());
             });
-            res.end(twiml.toString());
         });
     }
 };
