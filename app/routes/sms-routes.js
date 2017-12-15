@@ -49,10 +49,10 @@ module.exports = function (app) {
             }).then(crime => {
                 vCrimes = crime.violent_crimes;
                 pCrimes = crime.property_crimes;
-                population = crime.population;
+                population = crime.Population;
 
                 twiml.message("Info for zipcode  " +
-                    zip + ".\nCity: " + city + "\nCost: $" + cost + "\nPopulation: " + population + "\nViolence index: " + vCrimes
+                    zip + ".\nCity: " + city + "\nCost: $" + cost + "\nPopulation: " + population + "\nViolence index: " + vCrimes + "\nProperty Crime Index: " + pCrimes
                 );
 
                 res.writeHead(200, {
