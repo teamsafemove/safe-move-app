@@ -33,6 +33,7 @@ module.exports = function (app) {
             searchZip(userMessage, function (city, cost) {
                 twiml.message("Info for zipcode  " +
                     userMessage + ".\nCity: " + city + "\nCost: " + cost);
+                console.log(city, cost);
             });
         } else {
             console.log(typeof userMessage, userMessage.toString().length, userMessage);
