@@ -1,0 +1,85 @@
+/*font-family: 'Open Sans', sans-serif;*/
+#main-logo{
+    size: 30px;
+}
+footer{
+    background-color: rgb(80, 80, 80);
+    color: white;
+    padding-top: 20px;
+    text-align: right;
+}
+html{
+    height:100%
+  }
+body{
+    height:100%;
+    font-family: 'Open Sans', sans-serif;
+}
+.intro{
+    height:100%
+}
+.cta-cont{
+    background-color: rgba(23, 118, 220, 0.756);
+    height: 100px;
+
+}
+.cta-home{
+    margin: auto;
+}
+
+.left{
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    /* background-color:#3d231b; */
+    height : 700px;
+     /* background-image: url(https://cdn.homedsgn.com/wp-content/uploads/2011/05/Kerchum-Residence-01-750x559.jpg); */
+     overflow: hidden;
+}
+.right{
+    display : flex;
+    justify-content : center;
+    align-items : left;
+    background-color:white;
+    height : 700px;
+  
+}
+
+.rt-form{
+    padding-top: 40px;
+    
+}
+
+
+
+  @media (max-width: 100px) { 
+    .left{
+      height:100%
+    }
+    .right{
+      height:100%
+    }
+  }
+.about{
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    background-color:#000;
+    color : #FFF;
+    height:100%
+  }
+  #home-pic {
+     
+
+  }
+.glyphicon {
+      color: rgb(12, 112, 155);
+  }
+.features {
+    background-color: green;
+    color: white;
+}
+.video{
+    background-color: black;
+}
+  
