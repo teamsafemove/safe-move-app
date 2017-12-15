@@ -44,7 +44,7 @@ module.exports = function (app) {
             cost = cost.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
             city = result.City;
             twiml.message("Info for zipcode  " +
-                zip + ".\nCity: " + city + "\nCost: " + cost);
+                zip + ".\nCity: " + city + "\nCost: $" + cost);
 
             res.writeHead(200, {
                 'Content-Type': 'text/xml'
