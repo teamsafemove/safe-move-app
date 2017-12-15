@@ -16,21 +16,16 @@ module.exports = function (app) {
 
 
         if (userMessage.toString().length == 5 & typeof userMessage == "number") {
-            searchZip(userMessage).then(function () {
-                res.writeHead(200, {
-                    'Content-Type': 'text/xml'
-                });
-                res.end(twiml.toString());
-            });;
+            searchZip(userMessage);
+
 
         } else {
             console.log(typeof userMessage, userMessage.toString().length, userMessage);
-            twiml.message("That's not a zipcode I recognize").then(function () {
-                res.writeHead(200, {
-                    'Content-Type': 'text/xml'
-                });
-                res.end(twiml.toString());
+            twiml.message("That's not a zipcode I recognize")
+            res.writeHead(200, {
+                'Content-Type': 'text/xml'
             });
+            res.end(twiml.toString());
         }
 
 
@@ -51,6 +46,11 @@ module.exports = function (app) {
         }).then(function () {
             twiml.message("Info for zipcode  " +
                 userMessage + ".\nCity: " + city + "\nCost: " + cost);
+
+            res.writeHead(200, {
+                'Content-Type': 'text/xml'
+            });
+            res.end(twiml.toString());
         });
     }
 };
