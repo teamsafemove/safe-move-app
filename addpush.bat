@@ -2,4 +2,4 @@
 git add *
 git commit -m "%*"
 git push
-gir push heroku master
+git push heroku master
