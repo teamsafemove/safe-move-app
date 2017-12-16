@@ -3,7 +3,7 @@
     size: 30px;
 }
 footer{
-    background-color: rgb(80, 80, 80);
+    background-color: rgb(0, 0, 0);
     color: white;
     padding-top: 20px;
     text-align: right;
@@ -18,15 +18,9 @@ body{
 .intro{
     height:100%
 }
-.cta-cont{
-    background-color: rgba(23, 118, 220, 0.756);
-    height: 100px;
-
-}
 .cta-home{
     margin: auto;
 }
-
 .left{
     display : flex;
     justify-content : center;
@@ -37,6 +31,7 @@ body{
      overflow: hidden;
 }
 .right{
+    padding-top: 100px;
     display : flex;
     justify-content : center;
     align-items : left;
@@ -50,8 +45,6 @@ body{
     
 }
 
-
-
   @media (max-width: 100px) { 
     .left{
       height:100%
@@ -60,26 +53,22 @@ body{
       height:100%
     }
   }
-.about{
-    display : flex;
-    justify-content : center;
-    align-items : center;
-    background-color:#000;
-    color : #FFF;
-    height:100%
-  }
-  #home-pic {
-     
-
-  }
-.glyphicon {
-      color: rgb(12, 112, 155);
-  }
-.features {
-    background-color: green;
-    color: white;
+.title h1{
+    font-size: 250%;
 }
 .video{
-    background-color: black;
+    background-color: rgb(227, 203, 178);
+} 
+.no-padding{
+    padding-left: 0;
+    padding-right: 0;
 }
-  
+#home-pic{width:100%; height:auto;
+}
+
+.find-out{
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    padding-top: 50px;
+    padding-bottom: 0px;
+}
