@@ -36,81 +36,7 @@
                                 <button type="submit" class="btn btn-danger">Search >></button>
                             </form>
                             <!-- ========= end city capture form ========== -->
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h3 class="safe-score">SAFE SCORE</h3>
-                                        <img class="safety-icon" src="../images/good.png" alt="safe-score-icon">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h2 class="city-name">Irvine</h2>
-                                        <h3>Pop: </h3>
-                                    </div>
-                                </div>
-                                <h5>Results shown below by Zip Code. Click the '+' to view crime stats.</h5>
-                            </div>
-                            <div class="bs-example">
-                                <div class="panel-group" id="accordion">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title zip">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                                    <span class="glyphicon glyphicon-plus"></span> Zip Code Goes Here</a>
-                                                <span class="value">
-                                                    <h5>Average Home Valuegoes here.</h5>
-                                                </span>
-                                            </h4>
-                                        </div>
-                                        <div id="collapseOne" class="panel-collapse collapse ">
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <h3>Crimes/1K people</h3>
-                                                        <ul>
-                                                            <li>Violent Crimes:
-                                                                <h3>test</h3>
-                                                            </li>
-                                                            <li>Property Crimes:
-                                                                <h3>test</h3>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel-group" id="accordion">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title zip">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                                    <span class="glyphicon glyphicon-plus"></span> Zip Code Goes Here</a>
-                                                <span class="value">
-                                                    <h5>Average Home Valuegoes here.</h5>
-                                                </span>
-                                            </h4>
-                                        </div>
-                                        <div id="collapseTwo" class="panel-collapse collapse ">
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <h3>Crimes/1K people</h3>
-                                                        <ul>
-                                                            <li>Violent Crimes:
-                                                                <h3>test</h3>
-                                                            </li>
-                                                            <li>Property Crimes:
-                                                                <h3>test</h3>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <div id="results"></div>
                         </div>
                     </div>
                 </div>
@@ -310,6 +236,7 @@
     <!-- ============ end footer ============= -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
     <script>
         $(document).ready(function () {
             // Add minus icon for collapse element which is open by default
@@ -326,5 +253,88 @@
     </script>
     <script src="../js/results.js"></script>
     </body>
-    
+
+
+    <script id="results-template" type="x-handlebars-template">
+    <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="safe-score">SAFE SCORE</h3>
+                    <img class="safety-icon" src="../images/{{city.Score}}.png" alt="safe-score-icon">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="city-name">{{city.City}}</h2>
+                    <h3>Pop: {{city.Population}} </h3>
+                </div>
+            </div>
+            <h5>Results shown below by Zip Code. Click the '+' to view crime stats.</h5>
+        </div>
+        <div class="bs-example">
+            <div class="panel-group" id="accordion">
+
+
+                <div class="panel panel-default">
+                    {{#each zips}}
+                    <div class="panel-heading">
+                        <h4 class="panel-title zip">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{Zip}}">
+                                <span class="glyphicon glyphicon-plus"></span> {{Zip}} </a>
+                            <span class="value">
+                                <h5>Average Zillow Value: <strong>${{Zhvi}}</strong></h5>
+                            </span>
+                        </h4>
+                    </div>
+                    <div id="collapse{{Zip}}" class="panel-collapse collapse ">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>Crimes/1K people</h3>
+                                    <ul>
+                                        <li>Violent Crimes:
+                                            <h3>{{../city.violent_crimes}}</h3>
+                                        </li>
+                                        <li>Property Crimes:
+                                            <h3>{{../city.property_crimes}}</h3>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title zip">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                <span class="glyphicon glyphicon-plus"></span> Zip Code Goes Here</a>
+                            <span class="value">
+                                <h5>Average Home Valuegoes here.</h5>
+                            </span>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse ">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>Crimes/1K people</h3>
+                                    <ul>
+                                        <li>Violent Crimes:
+                                            <h3>test</h3>
+                                        </li>
+                                        <li>Property Crimes:
+                                            <h3>test</h3>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
     </html>
