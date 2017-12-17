@@ -36,6 +36,7 @@
                                 <button type="submit" class="btn btn-danger">Search >></button>
                             </form>
                             <!-- ========= end city capture form ========== -->
+                            <!-- empty <div> to render landlebar template (id="results-template") into the <div> -->
                             <div id="results"></div>
                         </div>
                     </div>
@@ -66,71 +67,9 @@
                             for everyone.</p>
                     </div>
                     <div class="actionBox">
-                        <ul class="commentList">
-                            <li>
-                                <div class="commentText">
-                                    <p>I have lived in this city for 22 years and have never had a problem with crime.</p>
-                                    <span class="date user-name">
-                                        <h5>Jason</h5>
-                                    </span>
-                                    <span class="date sub-text">on March 5th, 2014</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="commentText">
-                                    <p>This city is pretty good, kind of boring for me, I like a little action!</p>
-                                    <span class="date user-name">
-                                        <h5>Sam</h5>
-                                    </span>
-                                    <span class="date sub-text">on March 5th, 2014</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="commentText">
-                                    <p>I really like this area, it seems safe and very family freindly.</p>
-                                    <span class="date user-name">
-                                        <h5>Neil</h5>
-                                    </span>
-                                    <span class="date sub-text">on March 5th, 2014</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="commentText">
-                                    <p>I really like this area, it seems safe and very family freindly.</p>
-                                    <span class="date user-name">
-                                        <h5>Neil</h5>
-                                    </span>
-                                    <span class="date sub-text">on March 5th, 2014</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="commentText">
-                                    <p>I really like this area, it seems safe and very family freindly.</p>
-                                    <span class="date user-name">
-                                        <h5>Neil</h5>
-                                    </span>
-                                    <span class="date sub-text">on March 5th, 2014</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="commentText">
-                                    <p>I really like this area, it seems safe and very family freindly.</p>
-                                    <span class="date user-name">
-                                        <h5>Neil</h5>
-                                    </span>
-                                    <span class="date sub-text">on March 5th, 2014</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="commentText">
-                                    <p>I really like this area, it seems safe and very family freindly.</p>
-                                    <span class="date user-name">
-                                        <h5>Neil</h5>
-                                    </span>
-                                    <span class="date sub-text">on March 5th, 2014</span>
-                                </div>
-                            </li>
-                        </ul>
+                        <!-- adding comments from hanlebar template -->
+                        <ul class="commentList"></ul>
+
                         <form class="form-inline" role="form">
                             <div class="form-group">
                                 <input class="form-control" type="text" placeholder="Your comments here." />
@@ -252,10 +191,23 @@
         });
     </script>
     <script src="../js/results.js"></script>
-    </body>
+</body>
 
+<script id="comments-template" type="x-handlebars-template">
+    {{#each comments}}
+    <li>
+        <div class="commentText">            
+            <p>{{Comment}}</p>
+            <span class="date user-name">
+                <h5>{{Author}}</h5>
+            </span>
+            <span class="date sub-text">on {{createdAt}}</span>
+        </div>
+    </li>
+    {{/each}}
+</script>
 
-    <script id="results-template" type="x-handlebars-template">
+<script id="results-template" type="x-handlebars-template">
     <div class="panel-body">
             <div class="row">
                 <div class="col-md-6">
@@ -337,4 +289,4 @@
         </div>
     </script>
 
-    </html>
+</html>

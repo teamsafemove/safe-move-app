@@ -14,4 +14,11 @@ module.exports = function (app) {
             
         })
     });
+    app.get("/api/comments", function(req, res){
+        searchCity = req.query.city;
+        db.comments.findAll({ where: { City: searchCity } }).then(function(allComments){
+            res.json({comments: allComments});
+            console.log("found this comments", allComments);
+        })
+    })
 };

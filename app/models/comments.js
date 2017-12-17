@@ -1,10 +1,12 @@
 module.exports = function (sequelize, DataTypes) {
     var Post = sequelize.define("comments", {
-        comment: {
+        Comment: {
             type: DataTypes.STRING,
-            unique: true,
-            len: [1, 4]
+            len: [1, 150]
         },
+        City: {
+            type: DataTypes.STRING,
+        }
     });
     return Post;
 };

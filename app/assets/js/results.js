@@ -16,5 +16,11 @@ $(document).ready(function () {
             var theTemplate = Handlebars.compile(theTemplateScript);
             $("#results").html(theTemplate(res));
         });
+        $.get("/api/comments", {city: city}, function (res) {
+            console.log(res);
+            var theTemplateScript = $("#comments-template").html();
+            var theTemplate = Handlebars.compile(theTemplateScript);
+            $(".commentList").html(theTemplate(res));
+        });
     });
 });
