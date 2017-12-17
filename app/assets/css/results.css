@@ -13,7 +13,7 @@ body{
     margin:50px;
 }
 .titleBox {
-    background-color:rgb(192, 214, 242);
+    background-color:rgb(152, 134, 108);
     padding:10px;
 }
 .titleBox label{
@@ -143,4 +143,9 @@ footer{
 .left-comment{ 
     overflow: hidden;
     padding-bottom: 0; 
+}
+.btn-warning {
+    color: #fff;
+    background-color: #742f27;
+    border-color: #742f27;
 }
