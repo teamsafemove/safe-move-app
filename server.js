@@ -46,6 +46,7 @@ app.post('/sms', (req, res) => {
     res.end(twiml.toString());
 });
 require("./app/routes/html-routes.js")(app);
+require("./app/routes/api-routes.js")(app);
 
 db.sequelize.sync().then(function () {
     app.listen(PORT, function () {
