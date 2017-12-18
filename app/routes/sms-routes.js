@@ -11,10 +11,10 @@ cost = 0;
 
 module.exports = function (app) {
     app.post('/sms', (req, res) => {
-        var userMessage = parseInt(req.body.Body);
+        var userMessage = req.body.Body;
 
         if (userMessage.toString().length == 5 & typeof userMessage == "number") {
-            searchZip(userMessage, res);
+            searchZip(parseInt(userMessage), res);
 
 
         } else {
@@ -80,14 +80,13 @@ module.exports = function (app) {
                 res.end(twiml.toString());
                 return;
             }
-
+            result = result.dataValues;
+            cost = result.Zhvi;
             res.writeHead(200, {
                 'Content-Type': 'text/xml'
             });
             res.end(twiml.toString());
-        })
-        result = result.dataValues;
-        cost = result.Zhvi;
+        });
         //this bit of code takes a number and formats it to xxx,xxx.yy for displaying money
         cost = cost.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
         db.crimes.findOne({
