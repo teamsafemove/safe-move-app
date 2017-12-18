@@ -1,0 +1,151 @@
+{
+	"info": {
+		"name": "Safe Move App",
+		"_postman_id": "478989f2-8c06-0878-232e-6e507119c775",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Search Existing City",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{server}}/api/city?city=Irvine",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"city"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "Irvine",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Search Non-Existing City",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{server}}/api/city?city=Not+Irvine",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"city"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "Not+Irvine",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Read Comments For Existing City",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{server}}/api/comments?city=Irvine",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"comments"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "Irvine",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Read Comments For Non-Existing City",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{server}}/api/comments?city=Not+Irvine",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"comments"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "Not+Irvine",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add Comments For Existing City",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"city\": \"Irvine\",\n\t\"comment\": \"Postman comment\"\n}"
+				},
+				"url": {
+					"raw": "http://{{server}}/api/comments",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"comments"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

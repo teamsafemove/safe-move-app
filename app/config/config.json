@@ -12,7 +12,9 @@
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "logging": false,
+    "operatorsAliases": false
   },
   "heroku": {
     "username": "bcab1c7c8a3362",

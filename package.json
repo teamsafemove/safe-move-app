@@ -4,7 +4,7 @@
   "description": "move safely to a new area - find home values and crime stats",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --timeout 10000",
     "start": "node server.js"
   },
   "repository": {
@@ -24,5 +24,10 @@
     "mysql2": "^1.5.1",
     "sequelize": "^4.28.0",
     "twilio": "^3.10.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^2.4.5"
   }
 }

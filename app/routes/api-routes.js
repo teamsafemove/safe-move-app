@@ -14,7 +14,9 @@ module.exports = function (app) {
     });
     app.get("/api/comments", function(req, res){
         var searchCity = req.query.city;
-        db.comments.findAll({ where: { City: searchCity }, order: [["createdAt", "DESC"]] }).then(function(allComments){
+        db.comments.findAll({ where: {
+            City: searchCity }, order: [["createdAt", "DESC"], ["id", "DESC"]]
+        }).then(function(allComments){
             res.json({comments: allComments});
         })
     });
@@ -24,7 +26,7 @@ module.exports = function (app) {
         db.comments.create({Comment: comment, City: city}).then(function(result){
             res.json({message: "OK"});
         }).catch(function (error) {
-            console.warn('Skipping record:', error.parent.sqlMessage);
+            console.warn('Skipping record:', error);
         });    
     });
 };
