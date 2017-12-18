@@ -28,7 +28,7 @@ module.exports = function (app) {
             res.end(twiml.toString());
         }
 
-
+        res.end();
     });
 
     function searchZip(zip, res) {
