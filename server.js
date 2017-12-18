@@ -38,6 +38,7 @@ require("./app/routes/sms-routes")(app);
 //-------------------------------------------------------------------------------------------------------
 
 require("./app/routes/html-routes.js")(app);
+require("./app/routes/api-routes.js")(app);
 
 
 db.sequelize.sync().then(function () {

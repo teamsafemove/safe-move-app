@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,103 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Safe Move results page</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Safe-Move-OC</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="../css/results.css">
 </head>
 
 <body>
-    <section class="container" id="top">
+    <section class="container no-padding" id="home-pic">
         <div class="row">
-            <div class="col-sm-6 left" id="home-pic">
-                <!-- <img class="img-responsive" src="../images/homesafe.jpg" alt=""> -->
-                <img src="../images/homesafe.jpg" alt="">
+            <div class="col-sm-6 left">
+                <img src="https://suddath.com/Suddath/media/InfoCenter/blogs/blog-201508-5-things-to-consider-when-choosing-a-moving-date.jpg?ext=.jpg"
+                    alt="">
             </div>
             <div class="col-sm-6 right">
                 <div class="row">
-                    <div class="col-lg-12 results">
+                    <div class="col-md-12 results center">
                         <div class="jumbotron">
-                        <h1>Start Packing!</h1>
-                    </div>
-                    <h2>Click the '+' to view crime stats and Saftey-Score to get ready for your move.</h2>
-                        <div class="bs-example">
-                            <div class="panel-group" id="accordion">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title zip">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                                <span class="glyphicon glyphicon-plus"></span> Zip Code Goes Here</a>
-                                            <span class="value">
-                                                <h5>Average Home Valuegoes here.</h5>
-                                            </span>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseOne" class="panel-collapse collapse ">
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <h2 class="safe-score">SAFE SCORE</h2>
-                                                    <br>
-                                                    <img class="safety-icon" src="../images/good.png" alt="safe-score-icon">
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <h2 class="city-name">Irvine</h2>
-                                                    <ul>
-                                                        <li>Population:
-                                                            <h3></h3>
-                                                        </li>
-                                                    </ul>
-                                                    <h4>Crimes per 1000 people</h4>
-                                                    <ul>
-                                                        <li>Violent Crimes:
-                                                            <h3></h3>
-                                                        </li>
-                                                        <li>Property Crimes:
-                                                            <h3></h3>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <h1>Start Searching!</h1>
+                            <h3>Enter a city name below.</h3>
+                            <!-- ======= form to capture city name ======= -->
+                            <form id="searchCity">
+                                <div class="form-group">
+                                    <label for="city">City to Search:</label>
+                                    <input type="text" class="form-control" id="city" placeholder="Enter City" name="city">
                                 </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                                <span class="glyphicon glyphicon-plus"></span> What is Bootstrap?</a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseTwo" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <p>Bootstrap is a powerful front-end framework for faster and easier web development.
-                                                It is a collection of CSS and HTML conventions.
-                                                <a href="https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/" target="_blank">Learn more.</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                                <span class="glyphicon glyphicon-plus"></span> What is CSS?</a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseThree" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <p>CSS stands for Cascading Style Sheet. CSS allows you to specify various style
-                                                properties for a given HTML element such as colors, backgrounds, fonts etc.
-                                                <a href="https://www.tutorialrepublic.com/css-tutorial/" target="_blank">Learn more.</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                <button type="submit" class="btn btn-danger">Search >></button>
+                            </form>
+                            <!-- ========= end city capture form ========== -->
+                            <!-- empty <div> to render landlebar template (id="results-template") into the <div> -->
+                            <div id="results"></div>
                         </div>
                     </div>
                 </div>
@@ -111,138 +42,142 @@
         </div>
     </section>
     <!-- ============ user comment section ============== -->
-    <section class="user-comments">
-        <div class="container-fluid comments">
-            <div class="row">
-                <div class="col-md-6 text-center zillow">
-                    <div id="zillow-large-search-box-widget-container" style="width:432px;overflow:hidden;background-color:#e7f1fd;color:#555; font: normal normal normal 13px verdana,arial,sans-serif;line-height:13px;margin:0 auto;padding:0;text-align:center;border:1px solid #adcfff;letter-spacing:0;text-transform:none;">
-                        <h2 style="color:#d61;text-align:left;font-size:20px;line-height:20px;font-weight:normal;float:left;width:200px;margin-left:10px;margin-top:5px;letter-spacing:0;text-transform:none;">Find Homes</h2>
-                        <div style="float:right;">
-                            <a href="https://www.zillow.com/" target="_blank" rel="nofollow">
-                                <img alt="Zillow Real Estate Information" style="border:0;" src="https://www.zillow.com/widgets/GetVersionedResource.htm?path=%2Fstatic%2Fimages%2Fpowered-by-zillow.gif"></img>
-                            </a>
-                        </div>
-                        <iframe scrolling="no" src="https://www.zillow.com/widgets/search/LargeSearchBoxWidget.htm?did=zillow-large-search-box-iframe-widget&type=iframe&rgname=Irvine+CA&shvi=yes"
-                            width="430" frameborder="0" height="400"></iframe>
-                        <table id="zillow-tnc-widget-footer-links" width="100%" style="font: normal normal normal 10px verdana,arial,sans-serif;text-align:left;line-height:12px;margin:10px 5px;padding:0;border-spacing:0;border-collapse:collapse;">
-                            <tbody style="margin:0;padding:0;">
-                                <tr style="margin:0;padding:0;">
-                                    <td style="font-weight:bold;font-size:10px;color:#555;text-align:left;margin:0;padding:0;">QUICK LINKS:</td>
-                                </tr>
-                                <tr style="margin:0;padding:0;">
-                                    <td style="margin:0;padding:0;">
-                                        <span id="widgetFooterLink" class="regionBasedLink">
-                                            <a href="https://www.zillow.com/seattle-wa/" target="_blank" rel="nofollow" style="color:#36b;font-family:verdana,arial,sans-serif;font-size:10px;margin:0 5px 0 0;padding:0;text-decoration:none;">
-                                                <span class="region">Irvine</span> Real Estate Listing</a>
-                                        </span>
-                                    </td>
-                                    <td style="margin:0;padding:0;">
-                                        <span id="widgetFooterLink">
-                                            <a href="https://www.zillow.com/mortgage-rates/" target="_blank" rel="nofollow" style="color:#36b;font-family:verdana,arial,sans-serif;font-size:10px;margin:0 5px 0 0;padding:0;text-decoration:none;">Mortgage Rates</a>
-                                        </span>
-                                    </td>
-                                    <td style="margin:0;padding:0;">
-                                        <span id="widgetFooterLink">
-                                            <a href="https://www.zillow.com/refinance/" target="_blank" rel="nofollow" style="color:#36b;font-family:verdana,arial,sans-serif;font-size:10px;margin:0 5px 0 0;padding:0;text-decoration:none;">Refinancing</a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr style="margin:0;padding:0;">
-                                    <td style="margin:0;padding:0;">
-                                        <span id="widgetFooterLink" class="regionBasedLink">
-                                            <a href="https://www.zillow.com/seattle-wa/foreclosures/" target="_blank" rel="nofollow" style="color:#36b;font-size:10px;margin:0 5px 0 0;padding:0;text-decoration:none;">
-                                                <span class="region">Irvine</span> Foreclosures</a>
-                                        </span>
-                                    </td>
-                                    <td style="margin:0;padding:0;">
-                                        <span id="widgetFooterLink">
-                                            <a href="https://www.zillow.com/mortgage-calculator/" target="_blank" rel="nofollow" style="color:#36b;font-size:10px;margin:0 5px 0 0;padding:0;text-decoration:none;">Mortgage Calculators</a>
-                                        </span>
-                                    </td>
-                                    <td style="margin:0;padding:0;">
-                                        <span id="widgetFooterLink">
-                                            <a href="https://www.zillow.com/mortgage-rates/" target="_blank" rel="nofollow" style="color:#36b;font-size:10px;margin:0 5px 0 0;padding:0;text-decoration:none;">Purchase Loans</a>
-                                        </span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+    <section class="container-fluid no-padding" id="home-pic">
+        <div class="row ">
+            <div class="col-lg-6 left-comment text-center">
+                <div class="jumbotron com-com">
+                    <h1>Community Matters.</h1>
+                    <h3>Improve your community by sharing your comments, critisisms, or advice about the area. Your nieghbors
+                        will thank you!</h3>
+                    <img class="hands" class="img-responsive" src="../images/communityhands.png" alt="">
                 </div>
-                <div class="col-md-6">
-                    <div class="detailBox">
-                        <div class="titleBox">
-                            <label>Have a Comment?</label>
-                            <button type="button" class="close" aria-hidden="true">&times;</button>
-                        </div>
-                        <div class="commentBox">
-                            <p class="taskDescription">We would love your opinion of this city and it's safety rating. It will help us build a safer
-                                community for everyone.</p>
-                        </div>
-                        <div class="actionBox">
-                            <ul class="commentList">
-                                <li>
-                                    <div class="commentText">
-                                        <p>I have lived in this city for 22 years and have never had a problem with crime.</p>
-                                        <span class="date user-name">
-                                            <h5>Jason</h5>
-                                        </span>
-                                        <span class="date sub-text">on March 5th, 2014</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="commentText">
-                                        <p>This city is pretty good, kind of boring for me, I like a little action!</p>
-                                        <span class="date user-name">
-                                            <h5>Sam</h5>
-                                        </span>
-                                        <span class="date sub-text">on March 5th, 2014</span>
-                                    </div>
-                                </li>
-                                <section>
-                                    <li>
-                                        <div class="commentText">
-                                            <p>I really like this area, it seems safe and very family freindly.</p>
-                                            <span class="date user-name">
-                                                <h5>Neil</h5>
-                                            </span>
-                                            <span class="date sub-text">on March 5th, 2014</span>
-                                        </div>
-                                    </li>
-                                </section>
-                            </ul>
-                            <form class="form-inline" role="form">
-                                <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="Your comments here." />
-                                </div>
-                                <div class="form-group">
-                                    <button class="btn btn-lrg btn-default">Add</button>
-                                </div>
-                            </form>
-                        </div>
+            </div>
+            <div class="col-lg-6  container comment-section">
+                <div class="detailBox">
+                    <div class="titleBox">
+                        <label>Have a Comment?</label>
+                        <button type="button" class="close" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="commentBox">
+                        <p class="taskDescription">We would love your opinion of this city and it's safety rating. It will help us build a safer community
+                            for everyone.</p>
+                    </div>
+                    <div class="actionBox">
+                        <!-- adding comments from hanlebar template -->
+                        <ul class="commentList"></ul>
+
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <input id="new-comment" class="form-control" type="text" placeholder="Your comments here." />
+                            </div>
+                            <div class="form-group">
+                                <button id="add-comment" class="btn btn-lrg btn-warning">Add</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-
     <!-- =================== end comment section ================== -->
-
-
-
-
-
+    <!-- =================== start zillow widget section ================== -->
+    <section class="container-fluid no-padding" id="home-pic">
+        <div class="row ">
+            <div class="col-lg-6  container zillow">
+                <div id="zillow-large-search-box-widget-container" style="width:432px;overflow:hidden;background-color:#e7f1fd;color:#555; font: normal normal normal 13px verdana,arial,sans-serif;line-height:13px;margin:0 auto;padding:0;text-align:center;border:0px solid #adcfff;letter-spacing:0;text-transform:none;">
+                    <h2 style="color:#d61;text-align:left;font-size:20px;line-height:20px;font-weight:normal;float:left;width:200px;margin-left:10px;margin-top:5px;letter-spacing:0;text-transform:none;">Find Homes</h2>
+                    <div style="float:right;">
+                        <a href="https://www.zillow.com/" target="_blank" rel="nofollow">
+                            <img alt="Zillow Real Estate Information" style="border:0;" src="https://www.zillow.com/widgets/GetVersionedResource.htm?path=%2Fstatic%2Fimages%2Fpowered-by-zillow.gif"></img>
+                        </a>
+                    </div>
+                    <iframe scrolling="no" src="https://www.zillow.com/widgets/search/LargeSearchBoxWidget.htm?did=zillow-large-search-box-iframe-widget&type=iframe&rgname=Irvine+CA&shvi=yes"
+                        width="430" frameborder="0" height="400"></iframe>
+                    <table id="zillow-tnc-widget-footer-links" width="100%" style="font: normal normal normal 10px verdana,arial,sans-serif;text-align:left;line-height:12px;margin:10px 5px;padding:0;border-spacing:0;border-collapse:collapse;">
+                        <tbody style="margin:0;padding:0;">
+                            <tr style="margin:0;padding:0;">
+                                <td style="font-weight:bold;font-size:10px;color:#555;text-align:left;margin:0;padding:0;">QUICK LINKS:</td>
+                            </tr>
+                            <tr style="margin:0;padding:0;">
+                                <td style="margin:0;padding:0;">
+                                    <span id="widgetFooterLink" class="regionBasedLink">
+                                        <a href="https://www.zillow.com/seattle-wa/" target="_blank" rel="nofollow" style="color:#36b;font-family:verdana,arial,sans-serif;font-size:10px;margin:0 5px 0 0;padding:0;text-decoration:none;">
+                                            <span class="region">Irvine</span> Real Estate Listing</a>
+                                    </span>
+                                </td>
+                                <td style="margin:0;padding:0;">
+                                    <span id="widgetFooterLink">
+                                        <a href="https://www.zillow.com/mortgage-rates/" target="_blank" rel="nofollow" style="color:#36b;font-family:verdana,arial,sans-serif;font-size:10px;margin:0 5px 0 0;padding:0;text-decoration:none;">Mortgage Rates</a>
+                                    </span>
+                                </td>
+                                <td style="margin:0;padding:0;">
+                                    <span id="widgetFooterLink">
+                                        <a href="https://www.zillow.com/refinance/" target="_blank" rel="nofollow" style="color:#36b;font-family:verdana,arial,sans-serif;font-size:10px;margin:0 5px 0 0;padding:0;text-decoration:none;">Refinancing</a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr style="margin:0;padding:0;">
+                                <td style="margin:0;padding:0;">
+                                    <span id="widgetFooterLink" class="regionBasedLink">
+                                        <a href="https://www.zillow.com/seattle-wa/foreclosures/" target="_blank" rel="nofollow" style="color:#36b;font-size:10px;margin:0 5px 0 0;padding:0;text-decoration:none;">
+                                            <span class="region">Irvine</span> Foreclosures</a>
+                                    </span>
+                                </td>
+                                <td style="margin:0;padding:0;">
+                                    <span id="widgetFooterLink">
+                                        <a href="https://www.zillow.com/mortgage-calculator/" target="_blank" rel="nofollow" style="color:#36b;font-size:10px;margin:0 5px 0 0;padding:0;text-decoration:none;">Mortgage Calculators</a>
+                                    </span>
+                                </td>
+                                <td style="margin:0;padding:0;">
+                                    <span id="widgetFooterLink">
+                                        <a href="https://www.zillow.com/mortgage-rates/" target="_blank" rel="nofollow" style="color:#36b;font-size:10px;margin:0 5px 0 0;padding:0;text-decoration:none;">Purchase Loans</a>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center zillow-text">
+                <div class="jumbotron ">
+                    <h1>Check Current Listings with Zillow.</h1>
+                    <h3>See real time listings in your chosen city.</h3>
+                    <img src="../images/zillow_logo.png" alt="">
+                    <h6>*clicking search will take you to Zillow.com</h6>
+                </div>
+            </div>
+    </section>
+    <!-- =================== end zillow widget section ================== -->
+    <!-- ============ footer ============ -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2017 Safe Move OC. All Rights Reserved.</p>
+            <ul class="list-inline">
+                <li class="list-inline-item">
+                    <a href="#">Jason</a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#">Katerina</a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#">Neil</a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#">Sam</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <!-- ============ end footer ============= -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
     <script>
         $(document).ready(function () {
             // Add minus icon for collapse element which is open by default
             $(".collapse.in").each(function () {
                 $(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
             });
-
             // Toggle plus minus icon on show hide of collapse element
             $(".collapse").on('show.bs.collapse', function () {
                 $(this).parent().find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus");
@@ -251,6 +186,73 @@
             });
         });
     </script>
+    <script src="../js/results.js"></script>
 </body>
+
+<script id="comments-template" type="x-handlebars-template">
+    {{#each comments}}
+    <li>
+        <div class="commentText">            
+            <p>{{Comment}}</p>
+            <span class="date user-name">
+                <h5>{{Author}}</h5>
+            </span>
+            <span class="date sub-text">on {{Date}}</span>
+        </div>
+    </li>
+    {{/each}}
+</script>
+
+<script id="results-template" type="x-handlebars-template">
+    <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="safe-score">SAFE SCORE</h3>
+                    <img class="safety-icon" src="../images/{{city.Score}}.png" alt="safe-score-icon">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="city-name">{{city.City}}</h2>
+                    <h3>Pop: {{city.Population}} </h3>
+                </div>
+            </div>
+            <h5>Results shown below by Zip Code. Click the '+' to view crime stats.</h5>
+        </div>
+        <div class="bs-example">
+            <div class="panel-group" id="accordion">
+
+
+                <div class="panel panel-default">
+                    {{#each zips}}
+                    <div class="panel-heading">
+                        <h4 class="panel-title zip">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{Zip}}">
+                                <span class="glyphicon glyphicon-plus"></span> {{Zip}} </a>
+                            <span class="value">
+                                <h5>Average Zillow Value: <strong>${{Zhvi}}</strong></h5>
+                            </span>
+                        </h4>
+                    </div>
+                    <div id="collapse{{Zip}}" class="panel-collapse collapse ">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>Crimes/1K people</h3>
+                                    <ul>
+                                        <li>Violent Crimes:
+                                            <h3>{{../city.violent_crimes}}</h3>
+                                        </li>
+                                        <li>Property Crimes:
+                                            <h3>{{../city.property_crimes}}</h3>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            
+    </script>
 
 </html>
