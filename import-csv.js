@@ -31,7 +31,4 @@ module.exports = function () {
             }
         });
     });
-    db.comments.create({Comment: "I really love this place!", City: "Irvine"}).catch(function (error) {
-        console.warn('Skipping record:', error.parent.sqlMessage);
-    });
 }
