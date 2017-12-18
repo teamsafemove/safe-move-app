@@ -4,7 +4,8 @@
     "password": null,
     "database": "oc_crime",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "logging": false
   },
   "test": {
     "username": "root",
@@ -13,11 +14,11 @@
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+  "heroku": {
+    "username": "bcab1c7c8a3362",
+    "password": "d821d4a7",
+    "database": "heroku_7b72d17e59e2ac7",
+    "host": "us-cdbr-iron-east-05.cleardb.net",
     "dialect": "mysql"
   }
 }
