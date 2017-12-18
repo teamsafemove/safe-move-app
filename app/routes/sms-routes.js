@@ -11,15 +11,21 @@ cost = 0;
 
 module.exports = function (app) {
     app.post('/sms', (req, res) => {
-        var userMessage = req.body.Body;
+        var userMessage = parseInt(req.body.Body);
+
 
         if (userMessage.toString().length == 5 & typeof userMessage == "number") {
-            searchZip(parseInt(userMessage), res);
+            searchZip(userMessage, res);
+            console.log(city, cost);
 
 
         } else {
             console.log(typeof userMessage, userMessage.toString().length, userMessage);
-            searchCity(userMessage, res);
+            twiml.message("That's not a zipcode I recognize");
+            res.writeHead(200, {
+                'Content-Type': 'text/xml'
+            });
+            res.end(twiml.toString());
         }
 
 
@@ -63,49 +69,6 @@ module.exports = function (app) {
                 });
                 res.end(twiml.toString());
             });
-        });
-    }
-
-    function searchCity(City, res) {
-        db.zhvis.findOne({
-            where: {
-                City: City
-            }
-        }).then(result => {
-            if (!result) {
-                twiml.message("City not found");
-                res.writeHead(200, {
-                    'Content-Type': 'text/xml'
-                });
-                res.end(twiml.toString());
-                return;
-            }
-            result = result.dataValues;
-            cost = result.Zhvi;
-            res.writeHead(200, {
-                'Content-Type': 'text/xml'
-            });
-            res.end(twiml.toString());
-        });
-        //this bit of code takes a number and formats it to xxx,xxx.yy for displaying money
-        cost = cost.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-        db.crimes.findOne({
-            where: {
-                City: City
-            }
-        }).then(crime => {
-            vCrimes = crime.violent_crimes;
-            pCrimes = crime.property_crimes;
-            population = crime.Population;
-
-            twiml.message("Info for zipcode  " +
-                zip + ".\nCity: " + city + "\nCost: $" + cost + "\nPopulation: " + population + "\nViolence index: " + vCrimes + "\nProperty Crime Index: " + pCrimes
-            );
-
-            res.writeHead(200, {
-                'Content-Type': 'text/xml'
-            });
-            res.end(twiml.toString());
         });
     }
 };
