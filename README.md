@@ -2,10 +2,12 @@
 
 **Objective**
 
-SafeMOVE is an tool designed to provide perspective home buyers a simple app to help them find the most home for their money in the safest neighborhooD in Orange County.
+SafeMOVE is an tool designed to provide perspective home buyers a simple app to help them find the most home for their money in the safest neighborhood in *Orange County, CA.*.
 Using FBI crime statistics and various real estate data SafeMOVE makes moving safe! 
 
-#### *Check it out on Heroku* : https://nameless-badlands-19621.herokuapp.com/
+#### Try it out, [CLICK HERE](https://nameless-badlands-19621.herokuapp.com), simply enter your name and email address, then choose a city in Orange County CA, to search current home values and see crime statistics along with a neighborhood safety rating.
+
+*Happy House Hunting!*
 
 
 ## Technologies used:
