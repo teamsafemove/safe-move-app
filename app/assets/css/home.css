@@ -25,10 +25,8 @@ body{
     display : flex;
     justify-content : center;
     align-items : center;
-    /* background-color:#3d231b; */
     height : 700px;
-     /* background-image: url(https://cdn.homedsgn.com/wp-content/uploads/2011/05/Kerchum-Residence-01-750x559.jpg); */
-     overflow: hidden;
+    overflow: hidden;
 }
 .right{
     padding-top: 100px;
